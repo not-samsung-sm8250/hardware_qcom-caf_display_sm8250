@@ -820,7 +820,6 @@ int32_t HWCSession::PresentDisplay(hwc2_display_t display, shared_ptr<Fence> *ou
     if (pending_power_mode_[display]) {
       status = HWC2::Error::None;
     } else {
-      hwc_display_[target_display]->ProcessActiveConfigChange();
       status = PresentDisplayInternal(target_display);
       if (status == HWC2::Error::None) {
         // Check if hwc's refresh trigger is getting exercised.
